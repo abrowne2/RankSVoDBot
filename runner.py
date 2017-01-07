@@ -3,8 +3,8 @@ Runner for Rank S (& Face-it?) Archive
 Automation Application
 '''
 from aggregation import getCurMatches
+import time
 import download as vod
-from matchDB import isCompleted
 
 '''
 How this Should Work:
@@ -23,9 +23,12 @@ the download link, duration, and other info.
 
 while True:
 	current_matches = getCurMatches()
-	current_matches.sort()
-	for match in current_matches:
-		if isCompleted(match) == False:
+	if len(current_matches) > 0:
+		current_matches.sort()
+		for match in current_matches:
+			#Download the demo.
 			match_info = vod.download(match)
 			if len(match_info) > 0:
-				
+				#begin the recording process here.
+	else:
+		time.sleep(18000)
