@@ -32,7 +32,4 @@ def getCurMatches():
 				matches.append(stats[stats.find("id=", curPos)+3:matchPos-2])
 			curPos = stats.find('id=', curPos+1)
 	#get unique matches
-	matches = list(set(matches))
-	print(matches)
-
-getCurMatches()
+	return list(set(matches))
