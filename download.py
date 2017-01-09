@@ -39,4 +39,4 @@ def modifyConfig(match_id):
 		loc_config = c.read()
 	cur_id = loc_config.find("esea_match_") + 12; end = loc_config.find('"', cur_id)
 	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
-	print(loc_config)
+	print(loc_config.encode('utf-8'))
