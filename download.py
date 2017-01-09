@@ -2,7 +2,7 @@
 Use this to download the archive, and then extract it accordingly.
 '''
 
-import cfscrape
+import cfscrape, os
 from pyunpack import Archive
 
 def download(match_id):
@@ -27,5 +27,16 @@ def download(match_id):
 		with open('match.zip', 'wb') as f:
 			f.write(archive_data)
 		Archive('match.zip').extractall('C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo')
+		modifyConfig(match_id)
 		return more_info
 	return []
+
+#with the match id, change our config so we can open the demo at the start.
+def modifyConfig(match_id):
+	os.system("taskkill /f /im steam.exe /im steamwebhelper.exe /im steamservice.exe"); loc_config = ''
+	cfg = "C:\Program Files (x86)\Steam\userdata\137759099\config\localconfig.vdf"
+	with open(cfg, 'r') as c:
+		loc_config = c.read()
+	cur_id = loc_config.find("esea_match_") + 12; end = loc_config.find('"', cur_id)
+	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
+	print(loc_config)
