@@ -28,8 +28,8 @@ def download(match_id):
 			f.write(archive_data)
 		Archive('match.zip').extractall('C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo')
 		b = modifyConfig(match_id)
-		path = " C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\csgo.exe"
-		os.system("start" + path)
+		path = r"C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo.exe"
+		os.system("start " + path)
 		return more_info
 	return []
 
