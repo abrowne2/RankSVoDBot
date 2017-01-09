@@ -27,7 +27,7 @@ def download(match_id):
 			f.write(archive_data)
 		Archive('match.zip').extractall('C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo')
 		b = modifyConfig(match_id)
-		time.sleep(45)
+		time.sleep(60)
 		return more_info
 	return []
 
