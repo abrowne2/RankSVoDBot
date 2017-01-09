@@ -34,7 +34,7 @@ def download(match_id):
 #with the match id, change our config so we can open the demo at the start.
 def modifyConfig(match_id):
 	os.system("taskkill /f /im steam.exe /im steamwebhelper.exe /im steamservice.exe"); loc_config = ''
-	cfg = "C:\Program Files (x86)\Steam\userdata\137759099\config\localconfig.vdf"
+	cfg = r"C:\Program Files (x86)\Steam\userdata\137759099\config\localconfig.vdf"
 	with open(cfg, 'r') as c:
 		loc_config = c.read()
 	cur_id = loc_config.find("esea_match_") + 12; end = loc_config.find('"', cur_id)
