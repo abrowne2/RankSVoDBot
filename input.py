@@ -1,4 +1,5 @@
 import ctypes
+import time
 
 SendInput = ctypes.windll.user32.SendInput
 
@@ -36,23 +37,22 @@ class Input(ctypes.Structure):
 # Actuals Functions
 
 def PressKey(hexKeyCode):
-
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( hexKeyCode, 0x48, 0, 0, ctypes.pointer(extra) )
+    ii_.ki = KeyBdInput( 0, hexKeyCode, 0x0008, 0, ctypes.pointer(extra) )
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
 def ReleaseKey(hexKeyCode):
-
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( hexKeyCode, 0x48, 0x0002, 0, ctypes.pointer(extra) )
+    ii_.ki = KeyBdInput( 0, hexKeyCode, 0x0008 | 0x0002, 0, ctypes.pointer(extra) )
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-
-def KeyPress():
-    PressKey(0x46) # press F
-    time.sleep(.5)
-    ReleaseKey(0x46) #release F
+# directx scan codes http://www.gamespp.com/directx/directInputKeyboardScanCodes.html
+while (True):
+    PressKey(0x11)
+    time.sleep(1)
+    ReleaseKey(0x11)
+    time.sleep(1)
