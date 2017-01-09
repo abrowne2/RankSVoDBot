@@ -12,7 +12,7 @@ from input import PressKey, ReleaseKey
 more_info = vod.download('8754553')
 hwnd = win32gui.FindWindow(None, "Counter-Strike: Global Offensive")
 win32gui.SetForegroundWindow(hwnd)
-sleep(2)
+time.sleep(2)
 PressKey(0x1E)
 time.sleep(1)
 ReleaseKey(0x1E)
