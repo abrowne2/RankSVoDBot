@@ -2,7 +2,7 @@
 Use this to download the archive, and then extract it accordingly.
 '''
 
-import cfscrape, os
+import cfscrape, os, time
 from pyunpack import Archive
 
 def download(match_id):
@@ -28,6 +28,7 @@ def download(match_id):
 			f.write(archive_data)
 		Archive('match.zip').extractall('C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo')
 		b = modifyConfig(match_id)
+		time.sleep(10)
 		path = r'C:\"Program Files (x86)"\Steam\steamapps\common\"Counter-Strike Global Offensive"\csgo.exe'
 		os.system("start " + path)
 		return more_info
