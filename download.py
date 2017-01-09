@@ -28,9 +28,6 @@ def download(match_id):
 			f.write(archive_data)
 		Archive('match.zip').extractall('C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo')
 		b = modifyConfig(match_id)
-		time.sleep(20)
-		path = r'C:\"Program Files (x86)"\Steam\steamapps\common\"Counter-Strike Global Offensive"\csgo.exe'
-		os.system("start " + path)
 		return more_info
 	return []
 
@@ -44,6 +41,6 @@ def modifyConfig(match_id):
 	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
 	with open(cfg, 'w') as c:
 		c.write(loc_config)
-	path = r'C:\"Program Files (x86)"\Steam\Steam.exe'
+	path = r'C:\"Program Files (x86)"\Steam\"Steam.exe -applaunch 730"'
 	os.system("start " + path)
 	return 'done'
