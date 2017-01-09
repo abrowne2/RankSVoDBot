@@ -41,6 +41,6 @@ def modifyConfig(match_id):
 	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
 	with open(cfg, 'w') as c:
 		c.write(loc_config)
-	path = r'C:\"Program Files (x86)"\Steam\"Steam.exe -applaunch 730"'
+	path = r'C:\"Program Files (x86)"\Steam\Steam.exe -applaunch 730'
 	os.system("start " + path)
 	return 'done'
