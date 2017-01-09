@@ -37,7 +37,7 @@ def modifyConfig(match_id):
 	cfg = "C:\\Program Files (x86)\\Steam\\userdata\\137759099\\config\\localconfig.vdf"
 	with open(cfg, 'r') as c:
 		loc_config = c.read()
-	cur_id = loc_config.find("esea_match_") + 13; end = loc_config.find('"', cur_id)
+	cur_id = loc_config.find("esea_match_") + 11; end = loc_config.find('"', cur_id)
 	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
 	with open(cfg, 'w') as c:
 		c.write(loc_config)
