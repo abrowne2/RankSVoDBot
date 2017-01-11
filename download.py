@@ -2,7 +2,7 @@
 Use this to download the archive, and then extract it accordingly.
 '''
 
-import cfscrape, os, time
+import cfscrape, os, time, begin
 from pyunpack import Archive
 
 def download(match_id):
@@ -41,6 +41,7 @@ def modifyConfig(match_id):
 	loc_config = loc_config[:cur_id] + match_id + loc_config[end:]
 	with open(cfg, 'w') as c:
 		c.write(loc_config)
+	x = begin.startTick()
 	path = r'C:\"Program Files (x86)"\Steam\Steam.exe -applaunch 730'
 	os.system("start " + path)
 	return 'done'
