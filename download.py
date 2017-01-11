@@ -52,5 +52,5 @@ def sec_duration(hhmmss):
 		total = 60 * int(hhmmss[0])
 		total += int(hhmmss[1])
 	else:
-		total = (3600 * int(hhmmss[0])) + (60 * int(hhmmss[1])) + int(hmmss[2])
+		total = (3600 * int(hhmmss[0])) + (60 * int(hhmmss[1])) + int(hhmmss[2])
 	return total
