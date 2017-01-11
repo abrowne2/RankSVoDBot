@@ -11,3 +11,6 @@ def upload(vid_info):
 	#os.remove(file)
 	return 'done'
 
+
+upload(['This is a test!', 'Test description', 'blah,test,test1'])
+
