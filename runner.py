@@ -33,5 +33,9 @@ if len(current_matches) > 0:
 			#begin the recording process here.
 			vid_info = record.createVod(match_info)
 			done = yt.upload(vid_info)
-			with open(os.getcwd()+'\storage\completed.txt', 'a') as db:
-				db.write(match)
+			arch = ''
+			with open(os.getcwd()+'\storage\completed.txt', 'r') as db:
+				arch = db.read()
+			arch += '\n' + match
+			with open(os.getcwd()+'\storage\completed.txt', 'w') as db:
+				db.write(arch)
