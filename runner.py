@@ -3,7 +3,7 @@ Runner for Rank S (& Face-it?) Archive
 Automation Application
 '''
 from aggregation import getCurMatches
-import time, record
+import time, record, os
 import download as vod
 import upload as yt
 '''
@@ -32,7 +32,7 @@ while True:
 				#begin the recording process here.
 				vid_info = record.createVod(match_info)
 				done = yt.upload(vid_info)
-				with open('storage/completed.txt', 'a') as db:
+				with open(os.getcwd()+'storage\completed.txt', 'a') as db:
 					db.write(match)
 	else:
 		time.sleep(18000)

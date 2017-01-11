@@ -1,3 +1,4 @@
+import os
 '''
 Storage Module for the Rank S Archive:
 =-==--=-=-=-=-=-==----=-=--=-=-=-=-=-=
@@ -8,6 +9,6 @@ ensure that it hasn't be done already.
 '''
 
 def isCompleted(match_id):
-	with open('storage/completed.txt', 'r') as db:
+	with open(os.getcwd()+'storage\completed.txt', 'r') as db:
 		allMatch = db.read()
 	return True if allMatch.find(match_id) != -1 else False
