@@ -28,7 +28,7 @@ def startTick():
 		tick = f.read()
 	b = tick.find(' ', tick.find("Tick:", tick.find("bomb_pickup")))
 	#get the start tick.
-	start = tick[b+1:tick.find(' ', b+1)-1]; cur = ''
+	start = tick[b:tick.find(' ', b+1)]; cur = ''
 	with open(cnsl + 'cfg\\config.cfg', 'r') as cfg:
 		cur = cfg.read()
 	#write the start tick to the bind so we can begin recording there.
