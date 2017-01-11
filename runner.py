@@ -3,7 +3,7 @@ Runner for Rank S (& Face-it?) Archive
 Automation Application
 '''
 from aggregation import getCurMatches
-import time, record, os
+import time, record, os, glob
 import download as vod
 import upload as yt
 '''
@@ -21,18 +21,17 @@ the download link, duration, and other info.
 	-> d.) Afterwards, begin the YouTube upload process.
 '''
 
-while True:
-	current_matches = getCurMatches()
-	if len(current_matches) > 0:
-		current_matches.sort()
-		for match in current_matches:
-			#Download the demo.
-			match_info = vod.download(match)
-			if len(match_info) > 0:
-				#begin the recording process here.
-				vid_info = record.createVod(match_info)
-				done = yt.upload(vid_info)
-				with open(os.getcwd()+'\storage\completed.txt', 'a') as db:
-					db.write(match)
-	else:
-		time.sleep(18000)
+current_matches = getCurMatches()
+if len(current_matches) > 0:
+	current_matches.sort()
+	for match in current_matches:
+		if len(glob.glob(r'C:\Users\Adam\Videos\*.avi')) == 5:
+			break
+		#Download the demo.
+		match_info = vod.download(match)
+		if len(match_info) > 0:
+			#begin the recording process here.
+			vid_info = record.createVod(match_info)
+			done = yt.upload(vid_info)
+			with open(os.getcwd()+'\storage\completed.txt', 'a') as db:
+				db.write(match)

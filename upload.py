@@ -1,13 +1,13 @@
 import os, glob, subprocess
 
 def upload(vid_info):
-	file = glob.glob(r'C:\Users\Adam\Videos\*.avi')[0]
+	file = glob.glob(r'C:\Users\Adam\Videos\*.avi')
+	num_files = len(file)
 	title = vid_info[0]; desc = vid_info[1]; keywords = vid_info[2]
-	cmd = 'python ' + os.getcwd() + '\ytapi.py --file="'+file+'" --title="'+title+'" --description="'+desc+'" --keywords="'+keywords+'" --category="20"'
-	u = subprocess.Popen(cmd, shell=True)
-	b = u.communicate()
-	isUploading = u.wait()
-	os.remove(file)
+	with open('Video ' + file[num_files-1], 'w') as de:
+		de.write(title)
+		de.write(desc)
+		de.write(keywords)
 	return 'done'
 
 
