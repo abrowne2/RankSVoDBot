@@ -25,8 +25,13 @@ def createVod(more_info):
 	ReleaseKey(0x1E)
 	time.sleep(5)
 	os.system("taskkill /f /im csgo.exe")
+	time.sleep(3)
 	de = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\csgo\\esea_match_"+more_info[3]+'.dem'
-	os.remove(de)
+	try:
+		os.remove(de)
+	except:
+		with open(de, 'w') as delete:
+			delete.write('')
 	#Video Title, Description, and Keywords:
 	return ['Rank S ' + more_info[0] + ' ('+more_info[2]+')', 'ESEA Match: https://play.esea.net/index.php?s=stats&d=match&id='+more_info[3],
 	'Csgo,esea,faceit,major,eleague,esports,gaming']
