@@ -16,7 +16,7 @@ def startTick():
 		f.write("")
 	path = r'C:\"Program Files (x86)"\Steam\Steam.exe -applaunch 730'
 	os.system("start " + path)
-	time.sleep(45)
+	time.sleep(55)
 	hwnd = win32gui.FindWindow(None, "Counter-Strike: Global Offensive")
 	win32gui.SetForegroundWindow(hwnd); time.sleep(2)
 	PressKey(0x2D)
