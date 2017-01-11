@@ -22,7 +22,7 @@ def startTick():
 	PressKey(0x2D)
 	time.sleep(1)
 	ReleaseKey(0x2D)
-	sleep(3)
+	time.sleep(3)
 	os.system("taskkill /f /im csgo.exe"); tick = ''
 	with open(cnsl + 'console.log', 'r') as f:
 		tick = f.read()
