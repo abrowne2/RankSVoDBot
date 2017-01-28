@@ -25,7 +25,7 @@ from oauth2client.tools import argparser, run_flow
 httplib2.RETRIES = 1
 
 # Maximum number of times to retry before giving up.
-MAX_RETRIES = "infinite"
+MAX_RETRIES = 3000000
 
 # Always retry when these exceptions are raised.
 RETRIABLE_EXCEPTIONS = (httplib2.HttpLib2Error, IOError, httplib.NotConnected,
