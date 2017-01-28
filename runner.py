@@ -21,21 +21,22 @@ the download link, duration, and other info.
 	-> d.) Afterwards, begin the YouTube upload process.
 '''
 
-current_matches = getCurMatches()
-if len(current_matches) > 0:
-	current_matches.sort()
-	for match in current_matches:
-		if len(glob.glob(r'C:\Users\Adam\Videos\*.avi')) == 5:
-			break
-		#Download the demo.
-		match_info = vod.download(match)
-		if len(match_info) > 0:
-			#begin the recording process here.
-			vid_info = record.createVod(match_info)
-			done = yt.upload(vid_info)
-			arch = ''
-			with open(os.getcwd()+'\storage\completed.txt', 'r') as db:
-				arch = db.read()
-			arch += '\n' + match
-			with open(os.getcwd()+'\storage\completed.txt', 'w') as db:
-				db.write(arch)
+while True:
+	current_matches = getCurMatches()
+	if len(current_matches) > 0:
+		current_matches.sort()
+		for match in current_matches:
+			#Download the demo.
+			match_info = vod.download(match)
+			if len(match_info) > 0:
+				#begin the recording process here.
+				vid_info = record.createVod(match_info)
+				done = yt.upload(vid_info)
+				arch = ''
+				with open(os.getcwd()+'\storage\completed.txt', 'r') as db:
+					arch = db.read()
+				arch += '\n' + match
+				with open(os.getcwd()+'\storage\completed.txt', 'w') as db:
+					db.write(arch)
+	else:
+		time.sleep(18000)
