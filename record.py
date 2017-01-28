@@ -33,5 +33,5 @@ def createVod(more_info):
 		with open(de, 'w') as delete:
 			delete.write('')
 	#Video Title, Description, and Keywords:
-	return ['Rank S ' + more_info[0] + ' ('+more_info[2]+')', 'ESEA Match: https://play.esea.net/index.php?s=stats&d=match&id='+more_info[3],
-	'Csgo,esea,faceit,major,eleague,esports,gaming']
+	return ['Rank S ' + more_info[0] + ' ('+more_info[2]+')', 'ESEA Match: https://play.esea.net/index.php?s=stats&d=match&id='+more_info[3]+
+		' \nAll team logos and other respective trademarks are property of their owners, CSGO Match Archive does not claim ownership of such. ESEA => featuring $1,500,000 league for CS:GO & TF2, PUG/scrim mods with anti-cheat, stats logging, custom Ranks & an active community", (c) Turtle Entertainment Online, Inc', 'Csgo,esea,faceit,major,eleague,esports,gaming']
