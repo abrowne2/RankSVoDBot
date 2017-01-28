@@ -35,7 +35,7 @@ while True:
 				arch = ''
 				with open(os.getcwd()+'\storage\completed.txt', 'r') as db:
 					arch = db.read()
-				arch += '\n' + match
+				arch += match + '\n'
 				with open(os.getcwd()+'\storage\completed.txt', 'w') as db:
 					db.write(arch)
 	else:
